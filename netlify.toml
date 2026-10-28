@@ -1,7 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "public/build"
+  publish = "dist"
 
-[build.environment]
-  # Locked Symfony 8.1 packages require PHP >= 8.4.1
-  PHP_VERSION = "8.4"
+[dev]
+  framework = "astro"
