@@ -1,0 +1,2 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Akses ditolak</title><link rel="stylesheet" href="{{ asset('css/admin.css') }}"></head>
+<body class="loginbody"><div class="logincard"><h1>Akses ditolak</h1><p class="muted">{{ $exception->getMessage() ?: 'Anda tidak memiliki izin untuk halaman ini.' }}</p><a class="btn" href="{{ url('/admin') }}">Kembali</a></div></body></html>
