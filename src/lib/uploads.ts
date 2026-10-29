@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { randomBytes } from "node:crypto";
 
-const ROOT = path.join(process.cwd(), "uploads");
+const ROOT = (process.env.VERCEL ? "/tmp/uploads" : path.join(process.cwd(), "uploads"));
 export const EXT_MIME: Record<string, string> = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", ico: "image/x-icon" };
 const MIME_EXT: Record<string, string> = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "image/x-icon": "ico", "image/vnd.microsoft.icon": "ico" };
 export const IMG = ["jpg", "png", "webp"];

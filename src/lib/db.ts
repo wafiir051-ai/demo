@@ -9,7 +9,7 @@ const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(
 
 const g = globalThis as unknown as { __db?: DatabaseSync };
 function open() {
-  const d = new DatabaseSync(path.join(process.cwd(), "goding.db"));
+  const d = new DatabaseSync((process.env.VERCEL ? "/tmp/goding.db" : path.join(process.cwd(), "goding.db")));
   d.exec(`
   create table if not exists users(id integer primary key, name text, email text unique, password text, role text);
   create table if not exists business_settings(id integer primary key, business_name text, business_type text, tagline text, description text, primary_color text, secondary_color text, contact_email text, contact_phone text, whatsapp_number text, address text, maps_url text, instagram_url text, is_demo integer);
